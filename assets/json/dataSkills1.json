@@ -1,0 +1,57 @@
+[
+  {
+    "lvl": "4",
+    "data-title": "expert",
+    "name": "HTML/HTML5"
+  },
+  {
+    "lvl": "4",
+    "data-title": "expert",
+    "name": "CSS/CSS3"
+  },
+  {
+    "lvl": "4",
+    "data-title": "expert",
+    "name": "LESS/SCSS/SASS"
+  },
+  {
+    "lvl": "2",
+    "data-title": "good knowledge (1.5 year)",
+    "name": "REACT"
+  },
+  {
+    "lvl": "3",
+    "data-title": "expert",
+    "name": "Webpack/gulp"
+  },
+  {
+    "lvl": "3",
+    "data-title": "expert",
+    "name": "Chrome Dev Tools"
+  },
+  {
+    "lvl": "3",
+    "data-title": "expert",
+    "name": "JavaScript"
+  },
+  {
+    "lvl": "4",
+    "data-title": "good knowledge (1.5 year)",
+    "name": "Bootstrap version(2,3,4,5)"
+  },
+  {
+    "lvl": "3",
+    "data-title": "expert",
+    "name": "jQuery"
+  },
+  {
+    "lvl": "3",
+    "data-title": "expert",
+    "name": "Git"
+  },
+  {
+    "lvl": "2",
+    "data-title": "expert",
+    "name": "Figma/Photoshop"
+  }
+]

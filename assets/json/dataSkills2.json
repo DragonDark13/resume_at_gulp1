@@ -1,0 +1,52 @@
+[
+  {
+    "lvl": "2",
+    "data-title": "good knowledge",
+    "name": "Django"
+  },
+  {
+    "lvl": "1",
+    "data-title": "beginner",
+    "name": "Python"
+  },
+  {
+    "lvl": "3",
+    "data-title": "good knowledge",
+    "name": "npm/yarn"
+  },
+  {
+    "lvl": "2",
+    "data-title": "beginner",
+    "name": "TypeScript"
+  },
+  {
+    "lvl": "1",
+    "data-title": "good knowledge",
+    "name": "Joomla"
+  },
+  {
+    "lvl": "1",
+    "data-title": "beginner",
+    "name": "AJAX"
+  },
+  {
+    "lvl": "3",
+    "data-title": "strong",
+    "name": "GitHub/GitLab"
+  },
+  {
+    "lvl": "1",
+    "data-title": "beginner",
+    "name": "PHP"
+  },
+  {
+    "lvl": "1",
+    "data-title": "beginner",
+    "name": "Docker"
+  },
+  {
+    "lvl": "1",
+    "data-title": "beginner",
+    "name": "Angular"
+  }
+]
