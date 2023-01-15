@@ -10,7 +10,9 @@ var gulp = require('gulp'),
     htmlreplace = require('gulp-html-replace'),
     autoprefixer = require('gulp-autoprefixer'),
     fileinclude = require('gulp-file-include'),
+     debug = require('gulp-debug'),
     browserSync = require('browser-sync').create();
+
 
 // Clean task
 gulp.task('clean', function () {
@@ -21,8 +23,9 @@ gulp.task('clean', function () {
 gulp.task('vendor:js', function () {
     return gulp.src([
         './node_modules/bootstrap/dist/js/*',
-        './node_modules/@popperjs/core/dist/umd/popper.*'
-    ])
+        './node_modules/@popperjs/core/dist/umd/popper.*',
+        './node_modules/vanilla-viewport/viewport.js',
+    ]).pipe(debug({title: 'vendor:js:'}))
         .pipe(gulp.dest('./assets/js/vendor'));
 });
 
@@ -32,7 +35,7 @@ gulp.task('vendor:fonts', function () {
         './node_modules/bootstrap-icons/**/*',
         '!./node_modules/bootstrap-icons/package.json',
         '!./node_modules/bootstrap-icons/README.md',
-    ])
+    ]).pipe(debug({title: 'vendor:fonts'}))
         .pipe(gulp.dest('./assets/fonts/bootstrap-icons'))
 });
 
@@ -43,8 +46,9 @@ gulp.task('vendor', gulp.parallel('vendor:fonts', 'vendor:js'));
 gulp.task('vendor:build', function () {
     var jsStream = gulp.src([
         './assets/js/vendor/bootstrap.bundle.min.js',
-        './assets/js/vendor/popper.min.js'
-    ])
+        './assets/js/vendor/popper.min.js',
+        './assets/js/vendor/viewport.js'
+    ]).pipe(debug({title: 'vendor:build'}))
         .pipe(gulp.dest('./dist/assets/js/vendor'));
     var fontStream = gulp.src(['./assets/fonts/bootstrap-icons/**/*.*']).pipe(gulp.dest('./dist/assets/fonts/bootstrap-icons'));
     return merge(jsStream, fontStream);
@@ -52,7 +56,7 @@ gulp.task('vendor:build', function () {
 
 // Copy Bootstrap SCSS(SASS) from node_modules to /assets/scss/bootstrap
 gulp.task('bootstrap:scss', function () {
-    return gulp.src(['./node_modules/bootstrap/scss/**/*'])
+    return gulp.src(['./node_modules/bootstrap/scss/**/*']).pipe(debug({title: 'bootstrap:scss'}))
         .pipe(gulp.dest('./assets/scss/bootstrap'));
 });
 
@@ -63,7 +67,7 @@ gulp.task('scss', gulp.series('bootstrap:scss', function compileScss() {
         .pipe(sass.sync({
             outputStyle: 'expanded'
         }).on('error', sass.logError))
-        .pipe(autoprefixer())
+        .pipe(autoprefixer()).pipe(debug({title: 'scss'}))
         .pipe(gulp.dest('./assets/css'))
 }));
 
@@ -74,7 +78,7 @@ gulp.task('css:minify', gulp.series('scss', function cssMinify() {
         .pipe(rename({
             suffix: '.min'
         }))
-        .pipe(gulp.dest('./dist/assets/css'))
+        .pipe(gulp.dest('./dist/assets/css')).pipe(debug({title: 'css:minify'}))
         .pipe(browserSync.stream());
 }));
 
@@ -87,15 +91,9 @@ gulp.task('js:minify', function () {
         .pipe(rename({
             suffix: '.min'
         }))
-        .pipe(gulp.dest('./dist/assets/js'))
+        .pipe(gulp.dest('./dist/assets/js')).pipe(debug({title: 'js:minify'}))
         .pipe(browserSync.stream());
 });
-
-function fontCopyForText() {
-   return gulp.src(["./assets/fonts/**/**/*.*","./assets/fonts/**/*.*","!assets/fonts/bootstrap-icons"]).pipe(gulp.dest('./dist/assets/fonts/'));
-}
-
-exports.fontCopyForText = fontCopyForText;
 
 
 // Replace HTML block for Js and Css file to min version upon build and copy to /dist
@@ -108,7 +106,7 @@ gulp.task('replaceHtmlBlock', function () {
         .pipe(htmlreplace({
             'js': 'assets/js/app.min.js',
             'css': ['assets/css/app.min.css',"assets/fonts/bootstrap-icons/font/bootstrap-icons.css"]
-        }))
+        })).pipe(debug({title: 'replaceHtmlBlock'}))
         .pipe(gulp.dest('dist/'));
 });
 
@@ -117,7 +115,7 @@ gulp.task('fileinclude', function () {
         .pipe(fileinclude({
             prefix: '@@',
             basepath: '@file'
-        }))
+        })).pipe(debug({title: 'fileinclude'}))
         .pipe(gulp.dest('dist/'));
 });
 
@@ -148,7 +146,7 @@ gulp.task("build", gulp.series(gulp.parallel('css:minify', 'js:minify', 'vendor'
         "assets/img/**",
         "./assets/fonts/**/**/*.*",
         "./assets/fonts/**/*.*","!assets/fonts/bootstrap-icons"
-    ], {base: './'})
+    ], {base: './'}).pipe(debug({title: 'build'}))
         .pipe(gulp.dest('dist/'));
 }));
 

@@ -1,3 +1,4 @@
+@use 'sass:math';
 // Custom bootstrap variable overrides
 @import "bootstrap_variable_overrides";
 
@@ -53,7 +54,7 @@ body {
 a {
   //color: $white;
   text-decoration: none;
-  font-size: #{(100 / 14) * 16 / 100}em;
+  font-size: #{calc((100 / 14) * 16 / 100)}em;
   @include transition;
 
   &:hover {
@@ -295,7 +296,7 @@ section {
     }
 
     & > ul > li > h4 {
-      margin-bottom: $gutter/2;
+      margin-bottom:  calc(#{$gutter}/ 2);
       color: $yellowLight1;
     }
 
@@ -306,7 +307,7 @@ section {
 .decoration_line {
   width: calc(100% + #{$gutter});
   background-color: $themeColor1;
-  height: $gutter / 2;
+  height: calc(#{$gutter} / 2) ;
 }
 
 
