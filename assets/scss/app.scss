@@ -290,6 +290,14 @@ header {
 
   }
 
+    @for $i from 1 through 4 {
+       &>.row>*:nth-child(#{$i}) {
+        transition-delay: calc(25% * #{$i});
+      }
+    }
+
+
+
 }
 
 .decoration_line {
