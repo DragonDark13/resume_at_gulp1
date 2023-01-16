@@ -15,29 +15,39 @@
 
 
     <!-- endbuild -->
+
+    <!-- Bootstrap 5 Javascript -->
+    <script defer src="assets/js/vendor/viewport.js"></script>
+
+    <script defer src="assets/js/vendor/bootstrap.bundle.min.js" type="text/javascript"></script>
+    <!-- Custom Javascript -->
+    <!-- build:js -->
+    <script defer src="assets/js/app.js"></script>
+    <!-- endbuild -->
 </head>
 
-<body>
-<main class="main_container">
-    <header>
-        <div class="container pt-3 pb-3 pt-md-0 pb-md-0">
-            <div class="row justify-content-md-center ">
-                <div class="col-12 col-md-4 col-xl-3 ">
-                    <img src="assets/img/photo.jpg" alt="photo">
-                </div>
-                <div class="col-12 col-md-8 col-xl-7 header_info_block_container">
-                    <div class="header_info_block">
-                        <!--                        <div class="decoration_line d-none d-xl-block"></div>-->
-                        <div>
-                            <h1>Alexandr
-                                Zachkevich</h1>
-                            <h2 class="fs-4"><span>HTML coder</span>/ <span>Web developer</span></h2>
-                        </div>
+<body id="myViewport">
+<header id="firstSection" class="section">
+    <div class="container pt-3 pb-3 pt-md-0 pb-md-0">
+        <div class="row justify-content-md-center ">
+            <div class="col-12 col-md-4 col-xl-3 img_animation_container header_animation_item">
+                <img src="assets/img/photo.jpg" alt="photo">
+            </div>
+            <div class="col-12 col-md-8 col-xl-7 header_info_block_container">
+                <div class="header_info_block header_info_block_animation_container header_animation_item">
+                    <!--                        <div class="decoration_line d-none d-xl-block"></div>-->
+                    <div>
+                        <h1>Alexandr
+                            Zachkevich</h1>
+                        <h2 class="fs-4"><span>HTML coder</span>/ <span>Web developer</span></h2>
                     </div>
                 </div>
             </div>
         </div>
-    </header>
+    </div>
+</header>
+
+<main class="main_container section" id="firstSection2">
     <section>
         <div class="container">
             <!--            <div class="row decoration_container justify-content-md-center d-none d-md-flex">-->
@@ -48,60 +58,15 @@
             <div class="row justify-content-md-center">
                 <div class="col-12 col-md-8 col-xl-10 order-md-1">
                     <div class="bg_block">
-                        <article>
-                            <h3>EXPERIENCE</h3>
+                        <article class="history_container">
+                            <h3 class="animation_title">EXPERIENCE</h3>
                             <h5>5+ year</h5>
                             <div class="history row">
-                                <div class="col-12 col-xl-4">
-                                    <div class="company">
-                                        <div class="item_elem"></div>
-                                        <div class="content"><h4>E-consalting, Kiev</h4>
-                                            <h6>Frontend Developer / August 2022 – present</h6>
-                                            <ul>
-                                                <li>Work with Microsoft CRM
-                                                </li>
-                                                <li>Javascript created and fix</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-xl-4">
-                                    <div class="company">
-                                        <div class="item_elem"></div>
-                                        <div class="content"><h4>STEM, Kharkiv</h4>
-                                            <h6>Middle Front-end developer / May 2018 – March 2022</h6>
-                                            <ul>
-                                                <li>Сreation of online stores on layouts.
-                                                </li>
-                                                <li>Style optimization with Less/SASS/SCSS.
-                                                </li>
-                                                <li>Work with web-sites at PHP, Python, Django, React</li>
-                                                <li>Work with CSS Animation</li>
-                                                <li>Work with Typescript based React structure</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-xl-4">
-                                    <div class="company">
-                                        <div class="item_elem"></div>
-                                        <div class="content">
-                                            <h4>Ordasoft, Kharkiv</h4>
-                                            <h6>Junior Front-end developer / July 2015 – May 2018</h6>
-                                            <ul>
-                                                <li>Creating layouts using Joomla</li>
-                                                <li>Style optimization with preprocessors LESS.</li>
-                                                <li>Create grid system</li>
-                                                <li>Work with CMS (Joomla)</li>
-                                                <li>Work with CSS Animation</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
+                                @@loop("assets/template/_companyItemTemplate.html", "assets/json/companies.json")
                             </div>
                         </article>
                         <article class="personal_skills">
-                            <h3>Technical Skills</h3>
+                            <h3 class="animation_title">Technical Skills</h3>
                             <div class="core_skills">
                                 <h4>Core skills</h4>
 
@@ -112,19 +77,19 @@
                             </div>
                             <div class="additional_skills">
                                 <h4>Additional skills</h4>
-                                 <ul class="row">
+                                <ul class="row">
                                     @@loop("assets/template/_skill_progress_item.html", "assets/json/dataSkills2.json")
                                 </ul>
                             </div>
                         </article>
                         <article>
-                            <h3>EDUCATION</h3>
+                            <h3 class="animation_title">EDUCATION</h3>
                             <h6 class="university">National University of Radio Electronics, Kharkiv bachelor</h6>
                             <p>September 2011– August 2015, Kharkiv</p>
                             <p>Faculty of Telecommunications and Instrumentation. </p>
                         </article>
                         <article>
-                            <h3>ADDITIONAL INFORMATION</h3>
+                            <h3 class="animation_title">ADDITIONAL INFORMATION</h3>
                             <p>I am able to draw by hand. I have organizational skills and work experience in the team.
                                 I
                                 took
@@ -139,7 +104,7 @@
                                 recreation.</p>
                         </article>
                         <article>
-                            <h3>STRESS RESISTANCE</h3>
+                            <h3 class="animation_title">STRESS RESISTANCE</h3>
                             <p>I am from Kharkiv 😂</p>
                         </article>
                     </div>
@@ -151,7 +116,7 @@
     </section>
 </main>
 
-<footer>
+<footer id=secondSection class=section>
     <div class="container">
         <div class="row justify-content-md-center">
             <aside class="col-12 col-md-4 col-xl-10 contactPanel order-md-0">
@@ -164,16 +129,7 @@
                         <h3>Contact</h3>
 
                         <ul>
-                            <li><a href="tel:+380970958192"><i class="bi bi-telephone-fill"></i></a></li>
-                            <li><a href="https://t.me/AlexandrZachkevich"><i class="bi bi-telegram"></i></a></li>
-                            <li><a href="https://join.skype.com/invite/AYoGnd4bUb0V"><i class="bi bi-skype"></i></a>
-                            </li>
-                            <li><a href="mailto:aleksdark13@gmail.com"><i class="bi bi-envelope-at-fill"></i></a>
-                            </li>
-                            <li><a href="https://www.linkedin.com/in/alexandrzachkevich/"><i
-                                    class="bi bi-linkedin"></i></a></li>
-                            <li><a href="https://www.facebook.com/dragondark13"> <i class="bi bi-facebook"></i></a>
-                            </li>
+                            @@loop("assets/template/_socialItemTemplate.html", "assets/json/socialItem.json")
                         </ul>
 
                     </article>
@@ -196,12 +152,5 @@
         </div>
     </div>
 </footer>
-
-<!-- Bootstrap 5 Javascript -->
-<script src="assets/js/vendor/bootstrap.bundle.min.js" type="text/javascript"></script>
-<!-- Custom Javascript -->
-<!-- build:js -->
-<script src="assets/js/app.js"></script>
-<!-- endbuild -->
 </body>
 </html>

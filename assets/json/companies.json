@@ -1,0 +1,41 @@
+[
+  {
+    "company": "E-consalting",
+    "companyLocation": "Kiev",
+    "position": "Frontend Developer",
+    "periodStart": "August 2022",
+    "periodEnd": "present",
+    "aboutItem": [
+      "Work with Microsoft CRM",
+      "Javascript created and fix"
+    ]
+  },
+  {
+    "company": "STEM",
+    "companyLocation": "Kharkiv",
+    "position": "Middle Front-end developer",
+    "periodStart": "May 2018",
+    "periodEnd": "March 2022",
+    "aboutItem": [
+      "Сreation of online stores on layouts.",
+      "Style optimization with Less/SASS/SCSS.",
+      "Work with web-sites at PHP, Python, Django, React",
+      "Work with CSS Animation",
+      "Work with Typescript based React structure"
+    ]
+  },
+  {
+    "company": "Ordasoft",
+    "companyLocation": "Kharkiv",
+    "position": "Junior Front-end developer ",
+    "periodStart": "July 2015",
+    "periodEnd": "May 2018",
+    "aboutItem": [
+      "Creating layouts using Joomla",
+      "Style optimization with preprocessors LESS.",
+      "Create grid system",
+      "Work with CMS (Joomla)",
+      "Work with CSS Animation"
+    ]
+  }
+]

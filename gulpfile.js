@@ -25,7 +25,7 @@ gulp.task('vendor:js', function () {
         './node_modules/bootstrap/dist/js/*',
         './node_modules/@popperjs/core/dist/umd/popper.*',
         './node_modules/vanilla-viewport/viewport.js',
-    ]).pipe(debug({title: 'vendor:js:'}))
+    ])
         .pipe(gulp.dest('./assets/js/vendor'));
 });
 
@@ -35,7 +35,7 @@ gulp.task('vendor:fonts', function () {
         './node_modules/bootstrap-icons/**/*',
         '!./node_modules/bootstrap-icons/package.json',
         '!./node_modules/bootstrap-icons/README.md',
-    ]).pipe(debug({title: 'vendor:fonts'}))
+    ])
         .pipe(gulp.dest('./assets/fonts/bootstrap-icons'))
 });
 
@@ -48,7 +48,7 @@ gulp.task('vendor:build', function () {
         './assets/js/vendor/bootstrap.bundle.min.js',
         './assets/js/vendor/popper.min.js',
         './assets/js/vendor/viewport.js'
-    ]).pipe(debug({title: 'vendor:build'}))
+    ])
         .pipe(gulp.dest('./dist/assets/js/vendor'));
     var fontStream = gulp.src(['./assets/fonts/bootstrap-icons/**/*.*']).pipe(gulp.dest('./dist/assets/fonts/bootstrap-icons'));
     return merge(jsStream, fontStream);
@@ -56,7 +56,7 @@ gulp.task('vendor:build', function () {
 
 // Copy Bootstrap SCSS(SASS) from node_modules to /assets/scss/bootstrap
 gulp.task('bootstrap:scss', function () {
-    return gulp.src(['./node_modules/bootstrap/scss/**/*']).pipe(debug({title: 'bootstrap:scss'}))
+    return gulp.src(['./node_modules/bootstrap/scss/**/*'])
         .pipe(gulp.dest('./assets/scss/bootstrap'));
 });
 
@@ -67,7 +67,7 @@ gulp.task('scss', gulp.series('bootstrap:scss', function compileScss() {
         .pipe(sass.sync({
             outputStyle: 'expanded'
         }).on('error', sass.logError))
-        .pipe(autoprefixer()).pipe(debug({title: 'scss'}))
+        .pipe(autoprefixer())
         .pipe(gulp.dest('./assets/css'))
 }));
 
@@ -78,7 +78,7 @@ gulp.task('css:minify', gulp.series('scss', function cssMinify() {
         .pipe(rename({
             suffix: '.min'
         }))
-        .pipe(gulp.dest('./dist/assets/css')).pipe(debug({title: 'css:minify'}))
+        .pipe(gulp.dest('./dist/assets/css'))
         .pipe(browserSync.stream());
 }));
 
@@ -91,7 +91,18 @@ gulp.task('js:minify', function () {
         .pipe(rename({
             suffix: '.min'
         }))
-        .pipe(gulp.dest('./dist/assets/js')).pipe(debug({title: 'js:minify'}))
+        .pipe(gulp.dest('./dist/assets/js'))
+        .pipe(browserSync.stream());
+});
+
+gulp.task('js:app', function () {
+    return gulp.src([
+        './assets/js/app.js'
+    ])
+        .pipe(rename({
+            suffix: '.min'
+        }))
+        .pipe(gulp.dest('./dist/assets/js'))
         .pipe(browserSync.stream());
 });
 
@@ -106,7 +117,7 @@ gulp.task('replaceHtmlBlock', function () {
         .pipe(htmlreplace({
             'js': 'assets/js/app.min.js',
             'css': ['assets/css/app.min.css',"assets/fonts/bootstrap-icons/font/bootstrap-icons.css"]
-        })).pipe(debug({title: 'replaceHtmlBlock'}))
+        }))
         .pipe(gulp.dest('dist/'));
 });
 
@@ -115,12 +126,31 @@ gulp.task('fileinclude', function () {
         .pipe(fileinclude({
             prefix: '@@',
             basepath: '@file'
-        })).pipe(debug({title: 'fileinclude'}))
+        }))
         .pipe(gulp.dest('dist/'));
 });
 
 // Configure the browserSync task and watch file path for change
 gulp.task('dev', function browserDev(done) {
+    browserSync.init({
+        server: {
+            baseDir: "dist/"
+        }
+    });
+    gulp.watch(['assets/scss/*.scss', 'assets/scss/**/*.scss', '!assets/scss/bootstrap/**'], gulp.series('css:minify', function cssBrowserReload(done) {
+        browserSync.reload();
+        done(); //Async callback for completion.
+    }));
+    gulp.watch('assets/js/app.js', gulp.series('js:app', function jsBrowserReload(done) {
+        browserSync.reload();
+        done();
+    }));
+    gulp.watch(['*.html',"assets/json/*.json","assets/template/*.html"]).on('change', gulp.series("replaceHtmlBlock",browserSync.reload));
+    // gulp.watch(["assets/json/*.json"]).on('change',gulp.series("replaceHtmlBlock",browserSync.reload));
+    done();
+});
+
+gulp.task('prod', function browserDev(done) {
     browserSync.init({
         server: {
             baseDir: "dist/"
@@ -140,7 +170,17 @@ gulp.task('dev', function browserDev(done) {
 });
 
 // Build task
-gulp.task("build", gulp.series(gulp.parallel('css:minify', 'js:minify', 'vendor'), 'vendor:build', function copyAssets() {
+gulp.task("build", gulp.series(gulp.parallel('css:minify', 'js:app', 'vendor'), 'vendor:build', function copyAssets() {
+    return gulp.src([
+        '*.html',
+        "assets/img/**",
+        "./assets/fonts/**/**/*.*",
+        "./assets/fonts/**/*.*","!assets/fonts/bootstrap-icons"
+    ], {base: './'}).pipe(debug({title: 'build'}))
+        .pipe(gulp.dest('dist/'));
+}));
+
+gulp.task("build:prod", gulp.series(gulp.parallel('css:minify', 'js:minify', 'vendor'), 'vendor:build', function copyAssets() {
     return gulp.src([
         '*.html',
         "assets/img/**",
@@ -152,3 +192,4 @@ gulp.task("build", gulp.series(gulp.parallel('css:minify', 'js:minify', 'vendor'
 
 // Default task
 gulp.task("default", gulp.series("clean", 'build', 'replaceHtmlBlock'));
+gulp.task("default:prod", gulp.series("clean", 'build:prod', 'replaceHtmlBlock'));

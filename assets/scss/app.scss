@@ -21,7 +21,7 @@ html {
 
 @include font-face("Kobzar", "../fonts/Kobzar/KobzarKS_v1-020", normal, normal, ttf);
 @include font-face("Naftera", "../fonts/Naftera/Naftera", normal, normal, ttf);
-@include font-face("Namu", "../fonts/Namu/NAMU-Pro", normal, normal, ttf woff woff2 );
+@include font-face("Namu", "../fonts/Namu/NAMU-Pro", normal, normal, ttf woff woff2);
 @include font-face("e-ukraine", "../fonts/e-ukraine/e-ukraine-regular/e-ukraine-regular_w", 500, normal, eot woff2 woff ttf);
 @include font-face("e-ukraine", "../fonts/e-ukraine/e-ukraine-bold/e-ukraine-bold_w", bold, normal, eot woff2 woff ttf);
 
@@ -29,12 +29,13 @@ $themeColor1: #407BFF;
 $gutter: 12px;
 $themeColor3: #FFC440;
 $themeColor5: #4258ff;
-$white:#fff;
+$white: #fff;
 $yellowLight1: #F2B833;
 $blueLight1: #4F87FF;
-$blueDark1:#376adb;
-$blueDark2:#336FF2;
-$hoveredBgColor:#d73fac;
+$blueDark1: #376adb;
+$blueDark2: #336FF2;
+$hoveredBgColor: #d73fac;
+$sectionPaddingY: 64px;
 
 img {
   max-width: 100%;
@@ -104,7 +105,7 @@ h2, h3, h4, h5 {
 }
 
 header {
-  padding: 32px 0;
+  padding: $sectionPaddingY 0;
   background: $blueLight1;
 
   img {
@@ -142,7 +143,9 @@ header {
 }
 
 
-section {
+.main_container {
+  padding-top: $sectionPaddingY - $gutter*2;
+  padding-bottom: $sectionPaddingY - $gutter*2;
   background-color: $themeColor1;
   color: $white;
 
@@ -170,27 +173,12 @@ section {
           left: 0;
           top: 0;
           bottom: 0;
-          height: 100px;
+          height: 100%;
           background: $themeColor5;
           pointer-events: none;
           z-index: 1;
         }
 
-        &.lvl-1:after {
-          width: 25%
-        }
-
-        &.lvl-2:after {
-          width: 50%;
-        }
-
-        &.lvl-3:after {
-          width: 75%;
-        }
-
-        &.lvl-4:after {
-          width: 100%;
-        }
       }
 
       p {
@@ -296,7 +284,7 @@ section {
     }
 
     & > ul > li > h4 {
-      margin-bottom:  calc(#{$gutter}/ 2);
+      margin-bottom: calc(#{$gutter} / 2);
       color: $yellowLight1;
     }
 
@@ -307,12 +295,13 @@ section {
 .decoration_line {
   width: calc(100% + #{$gutter});
   background-color: $themeColor1;
-  height: calc(#{$gutter} / 2) ;
+  height: calc(#{$gutter} / 2);
 }
 
 
 footer {
   background: $blueDark2;
+  padding: $sectionPaddingY 0;
 
   h3 {
     color: $yellowLight1;
@@ -354,3 +343,103 @@ footer {
 
 }
 
+
+//animation
+
+$animationDistance: 150px;
+
+.header_animation_item {
+  position: relative;
+  opacity: 0;
+  transition: 1.4s all ease;
+}
+
+.img_animation_container {
+  transform: translateX(-#{$animationDistance});
+}
+
+.img_animation_container.active {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.header_info_block_animation_container {
+  transform: translateX($animationDistance);
+}
+
+.header_info_block_animation_container.active {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.animation_title {
+  opacity: 0;
+  transform: scale(0.7);
+  transition: 0.7s;
+  transform-origin: left;
+}
+
+.animation_title.active {
+  transform: none;
+  opacity: 1;
+}
+
+.animation_company_item {
+  opacity: 0;
+  transform: translateX(100%);
+  transition: 0.7s;
+  transform-origin: left;
+}
+
+.animation_company_item.active {
+  transform: translateX(0%);
+  opacity: 1;
+}
+
+@for $i from 1 through 3 {
+  .history > div:nth-child(3n + #{$i}) .animation_company_item {
+    transition-delay: calc(0.6s / #{$i});
+  }
+}
+
+
+.progress_bar_animation {
+
+  &:after {
+    opacity: 0;
+    transition: 1.5s;
+    width: 0;
+  }
+
+
+  &.active {
+
+    &:after {
+      opacity: 1;
+    }
+
+    @for $i from 1 through 3 {
+      &.lvl- #{$i}:after {
+        transition-delay: calc(25% * #{$i});
+      }
+    }
+
+    //&.lvl-1:after {
+    //  width: 25%
+    //}
+    //
+    //&.lvl-2:after {
+    //  width: 50%;
+    //}
+    //
+    //&.lvl-3:after {
+    //  width: 75%;
+    //}
+    //
+    //&.lvl-4:after {
+    //  width: 100%;
+    //}
+  }
+
+
+}
