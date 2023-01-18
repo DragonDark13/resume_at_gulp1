@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
-    <title>Bootstrap 5 Template</title>
+    <title>Alexandr Zachkevich Web developer </title>
 
     <!-- Favicons -->
     <link rel="icon" href="assets/img/favicons/favicon.ico">
@@ -27,7 +27,7 @@
 </head>
 
 <body id="myViewport">
-<header id="firstSection" class="section">
+<header >
     <div class="container pt-3 pb-3 pt-md-0 pb-md-0">
         <div class="row justify-content-md-center ">
             <div class="col-12 col-md-4 col-xl-3 img_animation_container header_animation_item">
@@ -36,9 +36,8 @@
             <div class="col-12 col-md-8 col-xl-7 header_info_block_container">
                 <div class="header_info_block header_info_block_animation_container header_animation_item">
                     <!--                        <div class="decoration_line d-none d-xl-block"></div>-->
-                    <div>
-                        <h1>Alexandr
-                            Zachkevich</h1>
+                    <div class="block_decor_text ">
+                        <h1>Alexandr Zachkevich</h1>
                         <h2 class="fs-4"><span>HTML coder</span>/ <span>Web developer</span></h2>
                     </div>
                 </div>
@@ -47,17 +46,11 @@
     </div>
 </header>
 
-<main class="main_container section" id="firstSection2">
+<main class="main_container section" >
     <section>
         <div class="container">
-            <!--            <div class="row decoration_container justify-content-md-center d-none d-md-flex">-->
-            <!--                <div class="col-12 col-xl-10">-->
-            <!--                    <div class="decoration_line"></div>-->
-            <!--                </div>-->
-            <!--            </div>-->
             <div class="row justify-content-md-center">
                 <div class="col-12 col-md-8 col-xl-10 order-md-1">
-                    <div class="bg_block">
                         <article class="history_container">
                             <h3 class="animation_title">EXPERIENCE</h3>
                             <h5 class="animation_title">5+ year</h5>
@@ -75,8 +68,12 @@
                                 </ul>
 
                             </div>
+                            <div class="collapsible btn btn-primary hvr-wobble-horizontal animation_title">
+                                <div class="text">Additional skills</div>
+                            </div>
                             <div class="additional_skills">
-                                <h4>Additional skills</h4>
+                                <h4 class="animation_title">Additional skills</h4>
+
                                 <ul class="row">
                                     @@loop("assets/template/_skill_progress_item.html", "assets/json/dataSkills2.json")
                                 </ul>
@@ -115,11 +112,11 @@
 
 
             </div>
-        </div>
+
     </section>
 </main>
 
-<footer id=secondSection class=section>
+<footer>
     <div class="container">
         <div class="row justify-content-md-center">
             <aside class="col-12 col-md-4 col-xl-10 contactPanel order-md-0">
@@ -131,20 +128,21 @@
                     <article class="contact_block col">
                         <h3 class="animation_title">Contact</h3>
 
-                        <ul class="animation_title">
+                        <ul class="social_icon_list">
                             @@loop("assets/template/_socialItemTemplate.html", "assets/json/socialItem.json")
                         </ul>
 
                     </article>
                     <article class="col">
                         <h3 class="animation_title">Languages</h3>
-                        <ul>
+                        <ul class="animation_title">
                             @@loop("assets/template/_languagesItemTemplate.html", "assets/json/languagesList.json")
                         </ul>
                     </article>
                     <article class="col">
                         <h3 class="animation_title">Hobbies</h3>
-                        <p class="animation_title">Tourism, Painting, Fantasy Books, Historical Places, Movies, History, Trekking, Video
+                        <p class="animation_title">Tourism, Painting, Fantasy Books, Historical Places, Movies, History,
+                            Trekking, Video
                             Games.</p>
                     </article>
 
@@ -152,6 +150,7 @@
             </aside>
         </div>
     </div>
+    <p class="copyright">Aleksandr Zachkevich copyrightⒸ 2023</p>
 </footer>
 </body>
 </html>
