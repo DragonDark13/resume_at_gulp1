@@ -1,6 +1,6 @@
 "use strict";
 
-var gulp = require('gulp'),
+const gulp = require('gulp'),
     sass = require('gulp-sass')(require('sass')),
     del = require('del'),
     uglify = require('gulp-uglify'),
@@ -10,8 +10,19 @@ var gulp = require('gulp'),
     htmlreplace = require('gulp-html-replace'),
     autoprefixer = require('gulp-autoprefixer'),
     fileinclude = require('gulp-file-include'),
-     debug = require('gulp-debug'),
+    debug = require('gulp-debug'),
+    notify = require('gulp-notify'),
     browserSync = require('browser-sync').create();
+
+const onError = function (err) {
+    notify.onError({
+        title: "Gulp",
+        subtitle: "Failure!",
+        message: "Error: <%= error.message %>",
+        sound: "Basso"
+    })(err);
+    this.emit('end');
+};
 
 
 // Clean task
@@ -65,6 +76,18 @@ gulp.task('bootstrap:scss', function () {
 gulp.task('scss', gulp.series('bootstrap:scss', function compileScss() {
     return gulp.src(['./assets/scss/*.scss'])
         .pipe(sass.sync({
+            outputStyle: 'expanded',
+            errLogToConsole: true,
+        // onError: function(err) {
+        //     return notify().write(err);
+        // }
+        }).on('error', notify.onError("Error: <%= error.message %>")))
+        .pipe(gulp.dest('./assets/css')).pipe(notify({ message: 'Styles task complete' }));
+}));
+
+gulp.task('scss:prod', gulp.series('bootstrap:scss', function compileScss() {
+    return gulp.src(['./assets/scss/*.scss'])
+        .pipe(sass.sync({
             outputStyle: 'expanded'
         }).on('error', sass.logError))
         .pipe(autoprefixer())
@@ -73,6 +96,15 @@ gulp.task('scss', gulp.series('bootstrap:scss', function compileScss() {
 
 // Minify CSS
 gulp.task('css:minify', gulp.series('scss', function cssMinify() {
+    return gulp.src("./assets/css/*.css")
+        .pipe(cleanCSS())
+        .pipe(rename({
+            suffix: '.min'
+        }))
+        .pipe(gulp.dest('./dist/assets/css'))
+        .pipe(browserSync.stream());
+}));
+gulp.task('css:minify:prod', gulp.series('scss:prod', function cssMinify() {
     return gulp.src("./assets/css/*.css")
         .pipe(cleanCSS())
         .pipe(rename({
@@ -116,7 +148,7 @@ gulp.task('replaceHtmlBlock', function () {
         }))
         .pipe(htmlreplace({
             'js': 'assets/js/app.min.js',
-            'css': ['assets/css/app.min.css',"assets/fonts/bootstrap-icons/font/bootstrap-icons.css"]
+            'css': ['assets/css/app.min.css', "assets/fonts/bootstrap-icons/font/bootstrap-icons.css"]
         }))
         .pipe(gulp.dest('dist/'));
 });
@@ -145,7 +177,7 @@ gulp.task('dev', function browserDev(done) {
         browserSync.reload();
         done();
     }));
-    gulp.watch(['*.html',"assets/json/*.json","assets/template/*.html"]).on('change', gulp.series("replaceHtmlBlock",browserSync.reload));
+    gulp.watch(['*.html', "assets/json/*.json", "assets/template/*.html"]).on('change', gulp.series("replaceHtmlBlock", browserSync.reload));
     // gulp.watch(["assets/json/*.json"]).on('change',gulp.series("replaceHtmlBlock",browserSync.reload));
     done();
 });
@@ -156,7 +188,7 @@ gulp.task('prod', function browserDev(done) {
             baseDir: "dist/"
         }
     });
-    gulp.watch(['assets/scss/*.scss', 'assets/scss/**/*.scss', '!assets/scss/bootstrap/**'], gulp.series('css:minify', function cssBrowserReload(done) {
+    gulp.watch(['assets/scss/*.scss', 'assets/scss/**/*.scss', '!assets/scss/bootstrap/**'], gulp.series('css:minify:prod', function cssBrowserReload(done) {
         browserSync.reload();
         done(); //Async callback for completion.
     }));
@@ -164,7 +196,7 @@ gulp.task('prod', function browserDev(done) {
         browserSync.reload();
         done();
     }));
-    gulp.watch(['*.html',"assets/json/*.json","assets/template/*.html"]).on('change', gulp.series("replaceHtmlBlock",browserSync.reload));
+    gulp.watch(['*.html', "assets/json/*.json", "assets/template/*.html"]).on('change', gulp.series("replaceHtmlBlock", browserSync.reload));
     // gulp.watch(["assets/json/*.json"]).on('change',gulp.series("replaceHtmlBlock",browserSync.reload));
     done();
 });
@@ -175,18 +207,18 @@ gulp.task("build", gulp.series(gulp.parallel('css:minify', 'js:app', 'vendor'), 
         '*.html',
         "assets/img/**",
         "./assets/fonts/**/**/*.*",
-        "./assets/fonts/**/*.*","!assets/fonts/bootstrap-icons"
-    ], {base: './'}).pipe(debug({title: 'build'}))
+        "./assets/fonts/**/*.*", "!assets/fonts/bootstrap-icons"
+    ], {base: './'})
         .pipe(gulp.dest('dist/'));
 }));
 
-gulp.task("build:prod", gulp.series(gulp.parallel('css:minify', 'js:minify', 'vendor'), 'vendor:build', function copyAssets() {
+gulp.task("build:prod", gulp.series(gulp.parallel('css:minify:prod', 'js:minify', 'vendor'), 'vendor:build', function copyAssets() {
     return gulp.src([
         '*.html',
         "assets/img/**",
         "./assets/fonts/**/**/*.*",
-        "./assets/fonts/**/*.*","!assets/fonts/bootstrap-icons"
-    ], {base: './'}).pipe(debug({title: 'build'}))
+        "./assets/fonts/**/*.*", "!assets/fonts/bootstrap-icons"
+    ], {base: './'})
         .pipe(gulp.dest('dist/'));
 }));
 
