@@ -7,7 +7,10 @@
     <title>Alexandr Zachkevich Web developer </title>
 
     <!-- Favicons -->
-    <link rel="icon" href="assets/img/favicons/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicons/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
 
     <!-- Custom styles for this template with bootstrap css -->
     <!-- build:css -->
@@ -27,7 +30,7 @@
 </head>
 
 <body id="myViewport">
-<header >
+<header>
     <div class="container pt-3 pb-3 pt-md-0 pb-md-0">
         <div class="row justify-content-md-center ">
             <div class="col-12 col-md-4 col-xl-3 img_animation_container header_animation_item">
@@ -45,72 +48,72 @@
     </div>
 </header>
 
-<main class="main_container section" >
+<main class="main_container section">
     <section>
         <div class="container">
             <div class="row justify-content-md-center">
                 <div class="col-12 col-md-8 col-xl-10 order-md-1">
-                        <article class="history_container">
-                            <h3 class="animation_title">EXPERIENCE</h3>
-                            <h5 class="animation_title">5+ year</h5>
-                            <div class="history row">
-                                @@loop("assets/template/_companyItemTemplate.html", "assets/json/companies.json")
-                            </div>
-                        </article>
-                        <article class="personal_skills">
-                            <h3 class="animation_title">Technical Skills</h3>
-                            <div class="core_skills">
-                                <h4>Core skills</h4>
+                    <article class="history_container">
+                        <h3 class="animation_title">EXPERIENCE</h3>
+                        <h5 class="animation_title">5+ year</h5>
+                        <div class="history row">
+                            @@loop("assets/template/_companyItemTemplate.html", "assets/json/companies.json")
+                        </div>
+                    </article>
+                    <article class="personal_skills">
+                        <h3 class="animation_title">Technical Skills</h3>
+                        <div class="core_skills">
+                            <h4>Core skills</h4>
 
-                                <ul class="row">
-                                    @@loop("assets/template/_skill_progress_item.html", "assets/json/dataSkills1.json")
-                                </ul>
+                            <ul class="row">
+                                @@loop("assets/template/_skill_progress_item.html", "assets/json/dataSkills1.json")
+                            </ul>
 
-                            </div>
-                            <div class="collapsible btn btn-primary hvr-wobble-horizontal animation_title">
-                                <div class="text">Additional skills</div>
-                            </div>
-                            <div class="additional_skills">
-                                <h4 class="animation_title">Additional skills</h4>
+                        </div>
+                        <div class="collapsible btn btn-primary hvr-wobble-horizontal animation_title">
+                            <div class="text">Additional skills</div>
+                        </div>
+                        <div class="additional_skills">
+                            <h4 class="animation_title">Additional skills</h4>
 
-                                <ul class="row">
-                                    @@loop("assets/template/_skill_progress_item.html", "assets/json/dataSkills2.json")
-                                </ul>
-                            </div>
-                        </article>
-                        <article>
-                            <h3 class="animation_title">EDUCATION</h3>
-                            <h6 class="university animation_title">National University of Radio Electronics, Kharkiv
-                                bachelor</h6>
-                            <p class="animation_title">September 2011– August 2015, Kharkiv</p>
-                            <p class="animation_title">Faculty of Telecommunications and Instrumentation. </p>
-                        </article>
-                        <article>
-                            <h3 class="animation_title">ADDITIONAL INFORMATION</h3>
-                            <p class="animation_title">I am able to draw by hand. I have organizational skills and work
-                                experience in the
-                                team.
-                                I
-                                took
-                                part in the implementation of social and public projects. Organized training on the
-                                psychology
-                                of communications in the socio-psychological center of KNURE. Member of the school of
-                                leadership
-                                "Bridge 2".Participated in the activities of the organization of the Red Cross of
-                                Kharkov.
-                                Organized creative workshops for children and adults. I love hikes and other kinds of
-                                active
-                                recreation.</p>
-                        </article>
-                        <article>
-                            <h3 class="animation_title">STRESS RESISTANCE</h3>
-                            <p class="animation_title">I am from Kharkiv 😂</p>
-                        </article>
-                    </div>
+                            <ul class="row">
+                                @@loop("assets/template/_skill_progress_item.html", "assets/json/dataSkills2.json")
+                            </ul>
+                        </div>
+                    </article>
+                    <article>
+                        <h3 class="animation_title">EDUCATION</h3>
+                        <h6 class="university animation_title">National University of Radio Electronics, Kharkiv
+                            bachelor</h6>
+                        <p class="animation_title">September 2011– August 2015, Kharkiv</p>
+                        <p class="animation_title">Faculty of Telecommunications and Instrumentation. </p>
+                    </article>
+                    <article>
+                        <h3 class="animation_title">ADDITIONAL INFORMATION</h3>
+                        <p class="animation_title">I am able to draw by hand. I have organizational skills and work
+                            experience in the
+                            team.
+                            I
+                            took
+                            part in the implementation of social and public projects. Organized training on the
+                            psychology
+                            of communications in the socio-psychological center of KNURE. Member of the school of
+                            leadership
+                            "Bridge 2".Participated in the activities of the organization of the Red Cross of
+                            Kharkov.
+                            Organized creative workshops for children and adults. I love hikes and other kinds of
+                            active
+                            recreation.</p>
+                    </article>
+                    <article>
+                        <h3 class="animation_title">STRESS RESISTANCE</h3>
+                        <p class="animation_title">I am from Kharkiv 😂</p>
+                    </article>
                 </div>
-
-
             </div>
+
+
+        </div>
 
     </section>
 </main>
