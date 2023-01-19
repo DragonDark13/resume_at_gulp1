@@ -1,14 +1,14 @@
 {
-  "name": "bootstrap-5-sass-gulp-4-boilerplate",
-  "version": "1.0.4",
-  "description": "A Bootstrap 5.0.2 boilerplate with sass and gulp 4",
+  "name": "Resume HTML Coder Zachkevich Aleksandr",
+  "version": "1.0.0",
+  "description": "Resume HTML Coder Zachkevich Aleksandr base on bootstrap boilerplate",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/JayeshLab/bootstrap-5-sass-gulp-4-boilerplate.git"
+    "url": "git+https://github.com/DragonDark13/resume_at_gulp1"
   },
   "keywords": [
     "bootstrap 5",
@@ -17,15 +17,11 @@
     "gulp",
     "gulp 4",
     "bootstrap icons",
-    "boilerplate",
-    "stater"
+    "javascript"
   ],
-  "author": "Jayesh Vachhani",
+  "author": "Zachkevich Aleksandr",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/JayeshLab/bootstrap-5-sass-gulp-4-boilerplate/issues"
-  },
-  "homepage": "https://github.com/JayeshLab/bootstrap-5-sass-gulp-4-boilerplate#readme",
+  "homepage": "https://github.com/DragonDark13/resume_at_gulp1",
   "dependencies": {
     "@popperjs/core": "^2.11.6",
     "bootstrap": "^5.2.3",
@@ -34,19 +30,17 @@
   },
   "devDependencies": {
     "browser-sync": "^2.27.10",
+    "convert-source-map": "^2.0.0",
     "del": "^3.0.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^8.0.0",
-    "gulp-browser-notification": "^1.0.0",
     "gulp-clean-css": "3.9.4",
     "gulp-concat": "^2.6.1",
-    "gulp-debug": "^4.0.0",
     "gulp-file-include": "^2.3.0",
     "gulp-html-replace": "^1.6.2",
     "gulp-notify": "^4.0.0",
     "gulp-rename": "^1.4.0",
     "gulp-sass": "^5.1.0",
-    "gulp-sourcemaps": "^2.6.5",
     "gulp-uglify": "^3.0.2",
     "merge-stream": "^1.0.1",
     "sass": "^1.49.0"

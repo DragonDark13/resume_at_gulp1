@@ -10,7 +10,6 @@ const gulp = require('gulp'),
     htmlreplace = require('gulp-html-replace'),
     autoprefixer = require('gulp-autoprefixer'),
     fileinclude = require('gulp-file-include'),
-    debug = require('gulp-debug'),
     notify = require('gulp-notify'),
     browserSync = require('browser-sync').create();
 
