@@ -1,4 +1,5 @@
 // Mixins
+@use "variables";
 
 // =============================================================================
 // String Replace
@@ -45,19 +46,19 @@
   }
 }
 
-@mixin _768 {
+@mixin mediaMinWidth768 {
   @media (min-width: 768px) {
     @content;
   }
 }
 
-@mixin _1200 {
+@mixin mediaMinWidth1200 {
   @media (min-width: 1200px) {
     @content;
   }
 }
 
-@mixin _768_less {
+@mixin mediaMaxWidth768 {
   @media (max-width: 768px) {
     @content;
   }
@@ -116,11 +117,11 @@
 }
 
 @function gutterSizeDel($num) {
-  @return calc(#{$gutter} / #{$num});
+  @return calc(#{variables.$gutter} / #{$num});
 }
 
-@function gutterSizeЬultiplication($num) {
-  @return calc(#{$gutter} * #{$num});
+@function gutterSizeMultiplication($num) {
+  @return calc(#{variables.$gutter} * #{$num});
 }
 
 @mixin keyframes($animation-name) {
@@ -147,4 +148,12 @@
   -ms-animation: #{$str};
   -o-animation: #{$str};
   animation: #{$str};
+}
+
+@mixin progressBarFilledClasses(){
+  @for $i from 1 through 4 {
+        &.lvl-#{$i}:after {
+          width: calc(25% * #{$i});
+        }
+      }
 }

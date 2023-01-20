@@ -1,16 +1,17 @@
 // General Style
-
+@use "variables";
+@use "mixins";
 img {
   max-width: 100%;
 }
 
 body {
   font-family: "Namu", sans-serif;
-  color: $white;
+  color: variables.$white;
   line-height: 1.7rem;
   font-size: 16px;
 
-  @include _768 {
+  @include mixins.mediaMinWidth768 {
     font-size: 14px;
   }
 }
@@ -18,7 +19,7 @@ body {
 a {
   text-decoration: none;
   font-size: #{calc((100 / 14) * 16 / 100)}em;
-  @include transition;
+  @include mixins.transition();
 
   &:hover {
     color: red;
@@ -28,11 +29,11 @@ a {
 h1 {
   font-weight: bold;
   font-size: 1.5rem;
-  margin-top: $gutter;
+  margin-top: variables.$gutter;
   font-family: "Naftera", sans-serif;
-  color: $yellowLight1;
+  color: variables.$yellowLight1;
 
-  @include _768 {
+  @include mixins.mediaMinWidth1200 {
     margin-top: 0;
     font-size: 4rem;
     font-family: "Kobzar", sans-serif;
@@ -41,7 +42,7 @@ h1 {
 
 h2 {
   font-size: 1.75rem;
-  color: $yellowLight1;
+  color: variables.$yellowLight1;
   font-style: italic;
 
   span {

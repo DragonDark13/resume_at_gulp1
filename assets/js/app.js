@@ -5,6 +5,8 @@ window.addEventListener('load', (event) => {
         entry.forEach(change => {
             if (change.isIntersecting) {
                 change.target.classList.add('active');
+            } else {
+                change.target.classList.remove('active');
             }
         });
     }
