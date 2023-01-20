@@ -48,8 +48,7 @@
     </div>
 </header>
 
-<main class="main_container section">
-    <section>
+<main class="main_container">
         <div class="container">
             <div class="row justify-content-md-center">
                 <div class="col-12 col-xl-10 order-md-1">
@@ -116,33 +115,32 @@
 
         </div>
 
-    </section>
 </main>
 
 <footer>
     <div class="container">
         <div class="row justify-content-md-center">
             <aside class="col-12  col-xl-10 contactPanel order-md-0">
-                <div class="row">
-                    <article class="col-12 col-lg-auto ">
+                <div class="row justify-content-start justify-content-md-between justify-content-xl-start ">
+                    <article class="col-12 col-lg-1 ">
                         <h3 class="animation_title"><i class="bi bi-geo-alt-fill"></i></h3>
                         <p class="Location animation_title">Ukraine</p>
                     </article>
-                    <article class="contact_block col-12 col-lg-auto  ">
+                    <article class="contact_block col-12 col-lg-3  col-xl-5">
                         <h3 class="animation_title">Contact</h3>
 
-                        <ul class="social_icon_list">
+                        <ul class="social_icon_list row">
                             @@loop("assets/template/_socialItemTemplate.html", "assets/json/socialItem.json")
                         </ul>
 
                     </article>
-                    <article class="col-12 col-lg-auto ">
+                    <article class="col-12 col-lg-3 ">
                         <h3 class="animation_title">Languages</h3>
                         <ul class="animation_title">
                             @@loop("assets/template/_languagesItemTemplate.html", "assets/json/languagesList.json")
                         </ul>
                     </article>
-                    <article class="col-12 col-lg-auto ">
+                    <article class="col-12 col-lg-4 col-xl-3 ">
                         <h3 class="animation_title">Hobbies</h3>
                         <p class="animation_title">Tourism, Painting, Fantasy Books, Historical Places, Movies, History,
                             Trekking, Video

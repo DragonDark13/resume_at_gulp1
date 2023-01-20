@@ -12,7 +12,7 @@ window.addEventListener('load', (event) => {
     }
 
     let options = {
-        threshold: [0.5]
+        threshold: [0.3]
     };
     let observer = new IntersectionObserver(onEntry, options);
     let elements = document.querySelectorAll('.animation_company_item,.animation_title,.header_animation_item,' +

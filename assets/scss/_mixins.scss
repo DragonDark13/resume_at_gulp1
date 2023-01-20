@@ -150,10 +150,10 @@
   animation: #{$str};
 }
 
-@mixin progressBarFilledClasses(){
+@mixin progressBarFilledClasses() {
   @for $i from 1 through 4 {
-        &.lvl-#{$i}:after {
-          width: calc(25% * #{$i});
-        }
-      }
+    &.lvl-#{$i}:after {
+      width: calc(25% * #{$i});
+    }
+  }
 }
