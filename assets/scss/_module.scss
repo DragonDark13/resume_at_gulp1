@@ -1,1 +1,143 @@
 // Module Style
+// Your style
+@use "variables";
+@use "mixins";
+
+
+.main_container article.personal_skills .btn {
+  position: relative;
+  border: 0;
+  outline: none;
+  font-size: 1.5em;
+  font-family: Namu, sans-serif;
+  text-transform: uppercase;
+  padding: variables.$gutter;
+  box-shadow: none;
+  color: variables.$white;
+  @include mixins.transition();
+  border-radius: 0;
+  background-color: transparent;
+  @include mixins.childElemOverPosition;
+  width: 100%;
+  display: block;
+
+  @include mixins.mediaMinWidth768 {
+    width: auto;
+    display: inline-block;
+  }
+
+
+  &:before {
+    $transformSkew: -11deg;
+    @include mixins.psevdoElemDecor();
+    margin: auto;
+    background: variables.$buttonColor;
+    @include mixins.transition();
+
+    @include mixins.mediaMinWidth768 {
+      transform: skew(-11deg);
+    }
+
+  }
+
+  &:hover {
+    &:before {
+      background: variables.$hoveredBgColor;
+      transform: skew(-11deg) scaleY(1.2);
+    }
+  }
+}
+
+
+.main_container article.personal_skills ul li {
+
+  .skill_item {
+    padding: 0 variables.$gutter;
+    position: relative;
+    overflow: hidden;
+    background: darken(variables.$themeColor1, 3%);
+    margin-bottom: variables.$gutter;
+
+    @include mixins.progressBarFilledClasses;
+
+
+    &:after {
+      @include mixins.psevdoElemDecor();
+      background: variables.$themeColor5;
+      z-index: 1;
+    }
+
+    @include mixins.childElemOverPosition;
+
+    p {
+      margin-bottom: 0;
+    }
+
+  }
+
+}
+
+.main_container .company {
+  position: relative;
+  padding: mixins.gutterSizeMultiplication(1);
+  margin-bottom: mixins.gutterSizeMultiplication(2);
+
+
+  @include mixins.mediaMinWidth768 {
+    padding: mixins.gutterSizeMultiplication(2);
+  }
+
+
+  .item_elem {
+    @include mixins.psevdoElemDecor;
+    background: variables.$blueDark1;
+    transform-origin: center;
+    pointer-events: none;
+
+    @include mixins.mediaMinWidth768 {
+      transform: skew(4deg);
+    }
+  }
+
+  .content {
+    position: relative;
+    z-index: 2;
+  }
+
+  h4 {
+    color: variables.$themeColor3;
+  }
+}
+
+
+footer .social_icon_list li {
+  padding-bottom: variables.$gutter;
+  padding-top: variables.$gutter;
+
+  a {
+    background: variables.$hoveredBgColor;
+    color: variables.$white;
+    @include mixins.square(34px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: skew(-11deg);
+    @include mixins.transition;
+
+    @include mixins.mediaMinWidth768 {
+      @include mixins.square(44px);
+
+    }
+
+    &:hover {
+      color: variables.$hoveredBgColor;
+      background: variables.$white;
+      transform: skew(-11deg) scale(1.1);
+    }
+  }
+
+  svg {
+    transform: scale(1.5);
+    display: block;
+  }
+}

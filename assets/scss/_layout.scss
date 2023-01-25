@@ -1,1 +1,219 @@
 // Layout Style
+
+// Your style
+@use "variables";
+@use "mixins";
+
+
+
+
+header {
+  padding: 0;
+  background: variables.$blueLight1;
+  z-index: 4;
+  position: relative;
+  @include mixins.layoutWithArrowBottom(4,variables.$blueLight1);
+
+
+
+  @include mixins.mediaMinWidth768 {
+    padding: variables.$sectionPaddingY 0;
+  }
+
+
+  img {
+    display: block;
+
+    @include mixins.mediaMinWidth768 {
+      transform: rotate(2deg);
+    }
+  }
+
+
+  .block_decor_text {
+    position: relative;
+    padding-top: variables.$gutter;
+
+
+    @include mixins.childElemOverPosition();
+
+    @include mixins.mediaMinWidth768 {
+      padding: mixins.gutterSizeMultiplication(3);
+
+      &:after {
+        @include mixins.psevdoElemDecor;
+        background-color: darken(variables.$blueLight1, 6%);
+        transform: skew(-2deg);
+      }
+    }
+
+  }
+
+  .header_info_block_container {
+    overflow: hidden;
+  }
+
+  .header_info_block {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    height: 100%;
+    align-items: center;
+  }
+
+  //.text_effect {
+  //  z-index: 1;
+  //  pointer-events: none;
+  //  @include mixins.absolute(0, 0, 0, 0);
+  //  @include mixins.square(100%);
+  //  color: variables.$white;
+  //  overflow: hidden;
+  //  white-space: nowrap;
+  //
+  //}
+
+}
+
+.main_container {
+  $paddingY: calc(#{ variables.$sectionPaddingY } - #{mixins.gutterSizeMultiplication(2)});
+  padding: $paddingY 0;
+  background-color: variables.$themeColor1;
+  color: variables.$white;
+  overflow: hidden;
+  position: relative;
+  z-index: 3;
+
+
+  article {
+    padding: mixins.gutterSizeMultiplication(2) 0;
+
+    @include mixins.mediaMaxWidth768 {
+      &.history_container .history > *:last-child .company {
+        margin-bottom: 0;
+      }
+    }
+
+
+    &.personal_skills ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+
+    &.personal_skills div > div:not(:last-child) > ul {
+      @include mixins.mediaMaxWidth768 {
+        margin-bottom: 0;
+      }
+    }
+
+
+    h3 {
+      margin-bottom: mixins.gutterSizeMultiplication(2);
+      letter-spacing: mixins.gutterSizeDel(6);
+
+      @include mixins.mediaMinWidth768 {
+        &:first-letter {
+          color: variables.$yellowLight1;
+          font-size: 2em;
+          letter-spacing: mixins.gutterSizeDel(2);
+          border-bottom: 2px solid variables.$yellowLight1;
+        }
+      }
+
+
+    }
+
+    h5 {
+      margin-bottom: mixins.gutterSizeMultiplication(2);
+      font-size: 1em;
+    }
+
+
+    &.education_container,
+    &.additional_information_container,
+    &.stress_resistance_container {
+
+      & > *:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .additional_skills {
+    color: fade-out(variables.$white, 0.3);
+  }
+
+  h6 {
+    margin-bottom: variables.$gutter;
+  }
+
+  .university {
+    color: variables.$themeColor3;
+  }
+
+  p {
+    margin-bottom: variables.$gutter;
+  }
+
+}
+
+.decoration_section_with_arrow{
+      @include mixins.layoutWithArrowBottom(2,variables.$themeColor1);
+}
+
+footer {
+  position: relative;
+  z-index: 1;
+  background: variables.$blueDark2;
+  padding-top: 16px;
+  color: variables.$white;
+
+
+  @include mixins.mediaMinWidth768 {
+    padding-top: variables.$sectionPaddingY;
+  }
+
+  article {
+    padding-top: variables.$gutter*2;
+  }
+
+  h3 {
+    color: variables.$yellowLight1;
+    margin-bottom: 1rem;
+  }
+
+  ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+  }
+
+  .contact_block {
+    .social_icon_list {
+      //display: flex;
+      margin-top: -#{variables.$gutter};
+      margin-bottom: -#{variables.$gutter};
+    }
+
+  }
+
+
+  .footer_bottom {
+    margin-top: 16px;
+    text-align: center;
+    padding: calc(#{variables.$gutter} / 2);
+    background-color: darken(variables.$blueDark2, 6%);
+
+    @include mixins.mediaMinWidth768 {
+      margin-top: variables.$sectionPaddingY;
+    }
+
+    p {
+      margin-bottom: 0;
+    }
+
+  }
+
+
+}
+

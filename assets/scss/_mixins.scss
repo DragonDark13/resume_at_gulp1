@@ -157,3 +157,40 @@
     }
   }
 }
+
+@include keyframes(arrowAnimation) {
+  0% {
+    bottom: 10px
+  }
+  100% {
+
+    bottom: 20px
+
+  }
+}
+
+@mixin arrowToBottomForSection($bgcolor) {
+  content: "";
+  pointer-events: none;
+  @include absolute(auto, 0, 10px, 0);
+  @include square(36vh);
+  margin: auto;
+  transform: rotate(45deg);
+  transform-origin: center;
+  background-color: $bgcolor;
+  z-index: -1;
+  @include animation(arrowAnimation 1s ease-in-out infinite alternate);
+}
+
+@mixin layoutWithArrowBottom($z,$bgcolor) {
+  position: relative;
+  z-index: $z;
+
+  @include mediaMinWidth1200 {
+    &:after {
+      @include arrowToBottomForSection($bgcolor);
+    }
+  }
+
+
+}

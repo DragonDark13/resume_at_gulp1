@@ -26,329 +26,6 @@ html {
 @include mixins.font-face("e-ukraine", "../fonts/e-ukraine/e-ukraine-bold/e-ukraine-bold_w", bold, normal, eot woff2 woff ttf);
 
 
-header {
-  padding: 0;
-  background: variables.$blueLight1;
-
-  @include mixins.mediaMinWidth768 {
-    padding: variables.$sectionPaddingY 0;
-  }
-
-
-  img {
-    display: block;
-
-    @include mixins.mediaMinWidth768 {
-      transform: rotate(2deg);
-    }
-  }
-
-
-  .block_decor_text {
-    position: relative;
-    padding-top: variables.$gutter;
-
-
-    @include mixins.childElemOverPosition();
-
-    @include mixins.mediaMinWidth768 {
-      padding: mixins.gutterSizeMultiplication(3);
-
-      &:after {
-        @include mixins.psevdoElemDecor;
-        background-color: darken(variables.$blueLight1, 6%);
-        transform: skew(-2deg);
-      }
-    }
-
-  }
-
-  .header_info_block_container {
-    overflow: hidden;
-  }
-
-  .header_info_block {
-    position: relative;
-    display: flex;
-    flex-wrap: wrap;
-    height: 100%;
-    align-items: center;
-  }
-
-}
-
-
-.main_container {
-  $paddingY: calc(#{ variables.$sectionPaddingY } - #{mixins.gutterSizeMultiplication(2)});
-  padding: $paddingY 0;
-  background-color: variables.$themeColor1;
-  color: variables.$white;
-  overflow-x: hidden;
-
-  article {
-    padding: mixins.gutterSizeMultiplication(2) 0;
-
-    @include mixins.mediaMaxWidth768 {
-      &.history_container .history > *:last-child .company {
-        margin-bottom: 0;
-      }
-    }
-
-
-    &.personal_skills .btn {
-      position: relative;
-      border: 0;
-      outline: none;
-      font-size: 1.5em;
-      font-family: Namu, sans-serif;
-      text-transform: uppercase;
-      padding: variables.$gutter;
-      box-shadow: none;
-      color: variables.$white;
-      @include mixins.transition();
-      border-radius: 0;
-      background-color: transparent;
-
-      @include mixins.childElemOverPosition;
-
-
-      &:before {
-        $transformSkew: -11deg;
-        @include mixins.psevdoElemDecor();
-        margin: auto;
-        transform: skew(-11deg);
-        background: variables.$buttonColor;
-        @include mixins.transition();
-      }
-
-      &:hover {
-        &:before {
-          background: variables.$hoveredBgColor;
-          transform: skew(-11deg) scaleY(1.2);
-        }
-      }
-    }
-
-    &.personal_skills ul {
-      list-style: none;
-      padding-left: 0;
-    }
-
-    &.personal_skills ul li {
-
-      .skill_item {
-        padding: 0 variables.$gutter;
-        position: relative;
-        overflow: hidden;
-        background: darken(variables.$themeColor1, 3%);
-        margin-bottom: variables.$gutter;
-
-        @include mixins.progressBarFilledClasses;
-
-
-        &:after {
-          @include mixins.psevdoElemDecor();
-          background: variables.$themeColor5;
-          z-index: 1;
-        }
-
-        @include mixins.childElemOverPosition;
-
-        p {
-          margin-bottom: 0;
-        }
-
-      }
-
-    }
-
-    &.personal_skills div > div:not(:last-child) > ul {
-      @include mixins.mediaMaxWidth768 {
-        margin-bottom: 0;
-      }
-    }
-
-
-    h3 {
-      margin-bottom: mixins.gutterSizeMultiplication(2);
-      letter-spacing: mixins.gutterSizeDel(6);
-
-      @include mixins.mediaMinWidth768 {
-        &:first-letter {
-          color: variables.$yellowLight1;
-          font-size: 2em;
-          letter-spacing: mixins.gutterSizeDel(2);
-          border-bottom: 2px solid variables.$yellowLight1;
-        }
-      }
-
-
-    }
-
-    h5 {
-      margin-bottom: mixins.gutterSizeMultiplication(2);
-      font-size: 1em;
-    }
-
-    .company {
-      position: relative;
-      padding: mixins.gutterSizeMultiplication(1);
-      margin-bottom: mixins.gutterSizeMultiplication(2);
-
-
-      @include mixins.mediaMinWidth768 {
-        padding: mixins.gutterSizeMultiplication(2);
-      }
-
-
-      .item_elem {
-        @include mixins.psevdoElemDecor;
-        background: variables.$blueDark1;
-        transform-origin: center;
-        pointer-events: none;
-
-        @include mixins.mediaMinWidth768 {
-          transform: skew(4deg);
-        }
-      }
-
-      .content {
-        position: relative;
-        z-index: 2;
-      }
-
-      h4 {
-        color: variables.$themeColor3;
-      }
-    }
-
-    &.education_container,
-    &.additional_information_container,
-    &.stress_resistance_container {
-
-      & > *:last-child {
-        margin-bottom: 0;
-      }
-    }
-  }
-
-  .additional_skills {
-    color: fade-out(variables.$white, 0.3);
-  }
-
-  h6 {
-    margin-bottom: variables.$gutter;
-  }
-
-  .university {
-    color: variables.$themeColor3;
-  }
-
-  p {
-    margin-bottom: variables.$gutter;
-  }
-
-}
-
-.contactPanel {
-  color: variables.$white;
-
-  article {
-    padding-top: variables.$gutter*2;
-
-    & > ul {
-      list-style: none;
-      padding-left: 0;
-      margin-bottom: 0;
-    }
-
-
-    h3 {
-      color: variables.$yellowLight1;
-    }
-
-    & > ul > li > h4 {
-      margin-bottom: calc(#{variables.$gutter} / 2);
-      color: variables.$yellowLight1;
-    }
-
-  }
-
-  @for $i from 1 through 4 {
-    & > .row > *:nth-child(#{$i}) {
-      transition-delay: calc( 0.2s  *  #{$i});
-    }
-  }
-
-
-}
-
-
-footer {
-  background: variables.$blueDark2;
-  padding-top: 16px;
-
-  @include mixins.mediaMinWidth768 {
-    padding-top: variables.$sectionPaddingY;
-  }
-
-  h3 {
-    color: variables.$yellowLight1;
-    margin-bottom: 1rem;
-  }
-
-  .contact_block {
-    .social_icon_list {
-      //display: flex;
-      margin-top: -#{variables.$gutter};
-      margin-bottom: -#{variables.$gutter};
-    }
-
-    .social_icon_list li {
-      padding-bottom: variables.$gutter;
-      padding-top: variables.$gutter;
-    }
-
-    .social_icon_list a {
-      background: variables.$hoveredBgColor;
-      color: variables.$white;
-      @include mixins.square(44px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transform: skew(-11deg);
-      @include mixins.transition;
-
-      &:hover {
-        color: variables.$hoveredBgColor;
-        background: variables.$white;
-        transform: skew(-11deg) scale(1.1);
-      }
-    }
-
-    svg {
-      transform: scale(1.5);
-      display: block;
-    }
-  }
-
-
-  .copyright {
-    margin-top: 16px;
-
-    @include mixins.mediaMinWidth768 {
-      margin-top: variables.$sectionPaddingY;
-    }
-
-    margin-bottom: 0;
-    text-align: center;
-    padding: calc(#{variables.$gutter} / 2);
-    background-color: darken(variables.$blueDark2, 6%);
-  }
-
-}
-
-
 //animation
 
 
@@ -402,21 +79,28 @@ $transition-delay: 0.7s;
     transform: none;
   }
 
-  .animation_company_item {
-    opacity: 0;
-    transform: translateX(100%);
-    @include mixins.transition(0.7s);
-    transform-origin: left;
-  }
-
-  .animation_company_item.active {
-    transform: translateX(0%);
-  }
-
   @for $i from 1 through 3 {
-    .history > div:nth-child(3n + #{$i}) .animation_company_item {
+    .history_row_animation > div:nth-child(3n + #{$i}) .company {
       transition-delay: calc(0.8s / #{$i});
     }
+  }
+
+  .history_row_animation {
+
+    .company {
+      opacity: 0;
+      transform: translateX(100%);
+      @include mixins.transition(0.7s);
+      transform-origin: left;
+    }
+
+    &.active {
+      .company {
+        transform: translateX(0%);
+        opacity: 1;
+      }
+    }
+
   }
 
 
@@ -459,6 +143,18 @@ $transition-delay: 0.7s;
 
   *.active {
     opacity: 1;
+  }
+
+  @include mixins.keyframes(textAnimation) {
+    0% {
+       transform: translateY(0px);
+      color: variables.$yellowLight1;
+    }
+    100% {
+      color: variables.$white;
+             transform: translateY(-20px);
+
+    }
   }
 
 
@@ -504,5 +200,9 @@ $transition-delay: 0.7s;
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.2s ease-out;
+}
+
+.block_decor_text{
+  @include mixins.animation(textAnimation 2s ease-in-out infinite alternate);
 }
 
