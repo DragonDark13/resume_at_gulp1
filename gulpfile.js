@@ -204,6 +204,7 @@ gulp.task('prod', function browserDev(done) {
 gulp.task("build", gulp.series(gulp.parallel('css:minify', 'js:app', 'vendor'), 'vendor:build', function copyAssets() {
     return gulp.src([
         '*.html',
+        "assets/img/my_works/**",
         "assets/img/**",
         "./assets/fonts/**/**/*.*",
         "./assets/fonts/**/*.*", "!assets/fonts/bootstrap-icons"
@@ -215,6 +216,7 @@ gulp.task("build:prod", gulp.series(gulp.parallel('css:minify:prod', 'js:minify'
     return gulp.src([
         '*.html',
         "assets/img/**",
+        "assets/img/my_works/**",
         "./assets/fonts/**/**/*.*",
         "./assets/fonts/**/*.*", "!assets/fonts/bootstrap-icons"
     ], {base: './'})
