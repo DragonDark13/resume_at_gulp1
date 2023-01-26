@@ -137,6 +137,13 @@ header {
         margin-bottom: 0;
       }
     }
+
+    &.work{
+      .row{
+        margin-bottom: -#{variables.$gutter};
+        margin-top:  -#{variables.$gutter};
+      }
+    }
   }
 
   .additional_skills {
