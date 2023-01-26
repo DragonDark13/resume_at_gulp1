@@ -50,7 +50,8 @@ gulp.task('vendor:fonts', function () {
 });
 
 // vendor task
-gulp.task('vendor', gulp.parallel('vendor:fonts', 'vendor:js'));
+// gulp.task('vendor', gulp.parallel('vendor:fonts', 'vendor:js'));
+gulp.task('vendor', gulp.parallel('vendor:js'));
 
 // Copy vendor's js to /dist
 gulp.task('vendor:build', function () {
@@ -60,8 +61,8 @@ gulp.task('vendor:build', function () {
         './assets/js/vendor/viewport.js'
     ])
         .pipe(gulp.dest('./dist/assets/js/vendor'));
-    var fontStream = gulp.src(['./assets/fonts/bootstrap-icons/**/*.*']).pipe(gulp.dest('./dist/assets/fonts/bootstrap-icons'));
-    return merge(jsStream, fontStream);
+    // var fontStream = gulp.src(['./assets/fonts/bootstrap-icons/**/*.*']).pipe(gulp.dest('./dist/assets/fonts/bootstrap-icons'));
+    return merge(jsStream);
 })
 
 // Copy Bootstrap SCSS(SASS) from node_modules to /assets/scss/bootstrap
@@ -207,7 +208,8 @@ gulp.task("build", gulp.series(gulp.parallel('css:minify', 'js:app', 'vendor'), 
         "assets/img/my_works/**",
         "assets/img/**",
         "./assets/fonts/**/**/*.*",
-        "./assets/fonts/**/*.*", "!assets/fonts/bootstrap-icons"
+        "./assets/fonts/**/*.*",
+        "!./assets/fonts/bootstrap-icons"
     ], {base: './'})
         .pipe(gulp.dest('dist/'));
 }));
@@ -218,7 +220,8 @@ gulp.task("build:prod", gulp.series(gulp.parallel('css:minify:prod', 'js:minify'
         "assets/img/**",
         "assets/img/my_works/**",
         "./assets/fonts/**/**/*.*",
-        "./assets/fonts/**/*.*", "!assets/fonts/bootstrap-icons"
+        "./assets/fonts/**/*.*",
+        "!./assets/fonts/bootstrap-icons/*.*"
     ], {base: './'})
         .pipe(gulp.dest('dist/'));
 }));
