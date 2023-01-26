@@ -113,6 +113,18 @@
   padding-top: variables.$gutter;
   padding-bottom: variables.$gutter;
 
+  .description {
+    @include mixins.absolute(0, 0, auto, 0);
+    z-index: 2;
+    width: 100%;
+    color: variables.$white;
+    padding: mixins.gutterSizeDel(2) variables.$gutter;
+    background-color: variables.$blueDark1;
+    @include mixins.transition();
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+
 
   img {
     display: block;
@@ -124,7 +136,7 @@
 
   a {
     background-color: variables.$blueLight1;
-
+    position: relative;
     display: block;
     //padding: mixins.gutterSizeDel(2);
     overflow: hidden;
@@ -135,8 +147,11 @@
       img {
         transform: scale(1.15);
         opacity: 1;
+      }
 
-
+      .description {
+        opacity: 1;
+        transform: translateX(0);
       }
 
     }
