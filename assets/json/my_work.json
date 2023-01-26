@@ -1,8 +1,13 @@
 [
+    {
+    "href": "https://mastertool.ua/ua/",
+    "img": "mastertool.ua_ua_.png",
+    "description": "react, STEM"
+  },
   {
-    "href": "http://dragondark13.github.io/Flower-CSS3-animation/",
-    "img": "dragondark13.github.io_Flower-CSS3-animation_.png",
-    "description": "github, css3Animation"
+    "href": "https://vbavto.com.ua/",
+    "img": "vbavto.com.ua_.png",
+    "description": "react, STEM"
   },
   {
     "href": "https://dragondark13.github.io/draft_hand_made/",
@@ -23,11 +28,13 @@
     "href": "https://ordasvit.com/joomla-cuisine/",
     "img": "ordasvit.com_joomla-cuisine_.png",
     "description": "ordasvit, cms template"
-  }, {
+  },
+  {
     "href": "https://ordasvit.com/joomla-classy-pan/",
-    "img": "ordasvit.com_joomla-cuisine_.png",
+    "img": "ordasvit.com_joomla-classy-pan_.png",
     "description": "ordasvit, cms template"
-  }, {
+  },
+  {
     "href": "https://ordasvit.com/joomla-human-resource-management/",
     "img": "ordasvit.com_joomla-human-resource-management_.png",
     "description": "ordasvit, cms template"
@@ -38,9 +45,14 @@
     "description": "github, test task"
   },
   {
-    "href": "https://dragondark13.github.io/wttm_test_task2/",
-    "img": "dragondark13.github.io_wttm_test_task2_.png",
-    "description": "github, test task"
+    "href": "http://dragondark13.github.io/Flower-CSS3-animation/",
+    "img": "dragondark13.github.io_Flower-CSS3-animation_.png",
+    "description": "github, css3Animation"
+  },
+  {
+    "href": "https://daniparts.com/",
+    "img": "daniparts.com_.png",
+    "description": "react, stem"
   },
   {
     "href": "https://dragondark13.github.io/wttm_test_task2/",
@@ -55,11 +67,6 @@
   {
     "href": "https://dragondark13.github.io/alexis_template_1/",
     "img": "dragondark13.github.io_alexis_template_1_.png",
-    "description": "github, my work"
-  },
-  {
-    "href": "https://mastertool.ua/ua/",
-    "img": "mastertool.ua_ua_.png",
     "description": "github, my work"
   }
 

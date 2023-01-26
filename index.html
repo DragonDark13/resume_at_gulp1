@@ -33,14 +33,14 @@
 <header>
     <div class="container pt-3 pb-3 pt-md-0 pb-md-0">
         <div class="row justify-content-md-center ">
-            <div class="col-12 col-md-4 col-xxl-3 img_animation_container header_animation_item">
+            <div class="col-12 col-md-4 col-xxl-4 img_animation_container header_animation_item">
                 <img src="assets/img/photo.jpg" alt="photo">
             </div>
-            <div class="col-12 col-md-8 col-xxl-7 header_info_block_container">
+            <div class="col-12 col-md-8 col-xxl-8 header_info_block_container">
                 <div class="header_info_block header_info_block_animation_container header_animation_item">
                     <div class="block_decor_text ">
                         <h1>Alexandr Zachkevich
-<!--                            <span class="text_effect">Alexandr Zachkevich</span>-->
+                            <!--                            <span class="text_effect">Alexandr Zachkevich</span>-->
                         </h1>
                         <h2 class="fs-4"><span>HTML coder</span>/ <span>Web developer</span></h2>
                     </div>
@@ -53,7 +53,7 @@
 <main class="main_container">
     <div class="container">
         <div class="row justify-content-md-center">
-            <div class="col-12 col-xxl-10">
+            <div class="col-12 col-xxl-12">
                 <article class="history_container">
                     <h3 class="animation_title">EXPERIENCE</h3>
                     <h5 class="animation_title">5+ year</h5>
@@ -83,8 +83,12 @@
                         </ul>
                     </div>
                 </article>
-                <article>
-                                                @@loop("assets/template/_my_work.html", "assets/json/my_work.json")
+                <article class="work">
+                    <h3 class="animation_title">Work</h3>
+
+                    <div class="row">
+                        @@loop("assets/template/_my_work.html", "assets/json/my_work.json")
+                    </div>
 
                 </article>
                 <article class="education_container">
@@ -127,13 +131,13 @@
     <div class="footer_top">
         <div class="container">
             <div class="row justify-content-md-center">
-                <div class="col-12  col-xxl-10 contactPanel">
+                <div class="col-12  col-xxl-12 contactPanel">
                     <div class="row justify-content-start justify-content-md-between justify-content-xl-start ">
-                        <article class="col-12 col-lg-1 ">
+                        <article class="col-12 col-lg-1 col-xl-2 ">
                             <h3 class="animation_title"><i class="bi bi-geo-alt-fill"></i></h3>
                             <p class="Location animation_title">Ukraine</p>
                         </article>
-                        <article class="contact_block col-12 col-lg-3  col-xl-5">
+                        <article class="contact_block col-12 col-lg-3  col-xl-4">
                             <h3 class="animation_title">Contact</h3>
 
                             <ul class="social_icon_list row">

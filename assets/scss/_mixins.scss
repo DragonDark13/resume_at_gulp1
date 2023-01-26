@@ -170,6 +170,7 @@
 }
 
 @mixin arrowToBottomForSection($bgcolor) {
+  $max:348px;
   content: "";
   pointer-events: none;
   @include absolute(auto, 0, 10px, 0);
@@ -180,6 +181,8 @@
   background-color: $bgcolor;
   z-index: -1;
   @include animation(arrowAnimation 1s ease-in-out infinite alternate);
+  max-width: $max;
+  max-height: $max;
 }
 
 @mixin layoutWithArrowBottom($z,$bgcolor) {

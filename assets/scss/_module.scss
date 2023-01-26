@@ -52,7 +52,7 @@
 .main_container article.personal_skills ul li {
 
   .skill_item {
-    padding: 0 variables.$gutter;
+    padding: mixins.gutterSizeDel(2) variables.$gutter;
     position: relative;
     overflow: hidden;
     background: darken(variables.$themeColor1, 3%);
@@ -107,6 +107,44 @@
   h4 {
     color: variables.$themeColor3;
   }
+}
+
+.main_container .work_item_container {
+  padding-top: variables.$gutter;
+  padding-bottom: variables.$gutter;
+
+
+  img {
+    display: block;
+    transform: scale(1);
+    transform-origin: center;
+    @include mixins.transition();
+    opacity: 0.8;
+  }
+
+  a {
+    background-color: variables.$blueLight1;
+
+    display: block;
+    //padding: mixins.gutterSizeDel(2);
+    overflow: hidden;
+
+
+    &:hover {
+
+      img {
+        transform: scale(1.15);
+        opacity: 1;
+
+
+      }
+
+    }
+
+
+  }
+
+
 }
 
 
