@@ -202,7 +202,7 @@ $transition-delay: 0.7s;
   transition: max-height 0.2s ease-out;
 }
 
-.block_decor_text{
-  @include mixins.animation(textAnimation 2s ease-in-out infinite alternate);
-}
+//.block_decor_text{
+//  @include mixins.animation(textAnimation 2s ease-in-out infinite alternate);
+//}
 
