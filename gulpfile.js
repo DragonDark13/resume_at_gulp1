@@ -202,7 +202,7 @@ gulp.task('prod', function browserDev(done) {
 });
 
 // Build task
-gulp.task("build", gulp.series(gulp.parallel('css:minify', 'js:app', 'vendor'), 'vendor:build', function copyAssets() {
+gulp.task("build", gulp.series(gulp.parallel('css:minify', 'js:app'),  function copyAssets() {
     return gulp.src([
         '*.html',
         "assets/img/my_works/**",
@@ -214,7 +214,7 @@ gulp.task("build", gulp.series(gulp.parallel('css:minify', 'js:app', 'vendor'), 
         .pipe(gulp.dest('dist/'));
 }));
 
-gulp.task("build:prod", gulp.series(gulp.parallel('css:minify:prod', 'js:minify', 'vendor'), 'vendor:build', function copyAssets() {
+gulp.task("build:prod", gulp.series(gulp.parallel('css:minify:prod', 'js:minify'), function copyAssets() {
     return gulp.src([
         '*.html',
         "assets/img/**",
