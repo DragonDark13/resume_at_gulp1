@@ -49,13 +49,13 @@ $transition-delay: 0.7s;
 
   .header_info_block_animation_container {
     transform: translateX($animationDistance);
-    transition: #{$transition-delay} #{$transition-delay};
+    transition:  #{$transition-delay};
 
 
     .block_decor_text:after {
       opacity: 0;
       left: 60%;
-      transition: #{$transition-delay};
+      transition: #{$transition-delay} #{$transition-delay};
     }
   }
 
