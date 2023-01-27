@@ -148,7 +148,7 @@ gulp.task('replaceHtmlBlock', function () {
         }))
         .pipe(htmlreplace({
             'js': 'assets/js/app.min.js',
-            'css': ['assets/css/app.min.css', "assets/fonts/bootstrap-icons/font/bootstrap-icons.css"]
+            'css': ['assets/css/app.min.css']
         }))
         .pipe(gulp.dest('dist/'));
 });
