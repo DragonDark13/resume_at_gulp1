@@ -78,5 +78,10 @@
     "lvl": "1",
     "data-title": "beginner",
     "name": "Slack"
+  },
+  {
+    "lvl": "1",
+    "data-title": "beginner",
+    "name": "Semantic UI"
   }
 ]
