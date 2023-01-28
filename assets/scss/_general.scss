@@ -30,13 +30,13 @@ h1 {
   font-weight: bold;
   font-size: 1.5rem;
   margin-top: variables.$gutter;
-  font-family: "Naftera", sans-serif;
+  font-family: "e-ukraine", sans-serif;
   color: variables.$yellowLight1;
 
   @include mixins.mediaMinWidth1200 {
     margin-top: 0;
     font-size: 4rem;
-    font-family: "Kobzar", sans-serif;
+    font-family: "e-ukraine", sans-serif;
   }
 }
 

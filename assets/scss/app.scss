@@ -19,7 +19,6 @@ html {
   scroll-behavior: smooth;
 }
 
-@include mixins.font-face("Kobzar", "../fonts/Kobzar/KobzarKS_v1-020", normal, normal, ttf);
 @include mixins.font-face("Naftera", "../fonts/Naftera/Naftera", normal, normal, ttf);
 @include mixins.font-face("Namu", "../fonts/Namu/NAMU-Pro", normal, normal, ttf woff woff2);
 @include mixins.font-face("e-ukraine", "../fonts/e-ukraine/e-ukraine-regular/e-ukraine-regular_w", 500, normal, eot woff2 woff ttf);

@@ -7,7 +7,7 @@
     "periodEnd": "present",
     "aboutItem": [
       "Work with Microsoft CRM",
-      "Javascript created and fix"
+      "Сreation and improvement of javascript"
     ]
   },
   {
@@ -19,7 +19,7 @@
     "aboutItem": [
       "Сreation of online stores on layouts.",
       "Style optimization with Less/SASS/SCSS.",
-      "Work with web-sites at PHP, Python, Django, React",
+      "I was responsible for HTML, CSS, javascript development. Backend part was created on at PHP, Python, Django, REST",
       "Work with CSS Animation",
       "Work with Typescript based React structure"
     ]
@@ -31,10 +31,9 @@
     "periodStart": "July 2015",
     "periodEnd": "May 2018",
     "aboutItem": [
-      "Creating layouts using Joomla",
+      "Creating simple layouts using Joomla",
       "Style optimization with preprocessors LESS.",
       "Create grid system",
-      "Work with CMS (Joomla)",
       "Work with CSS Animation"
     ]
   }
